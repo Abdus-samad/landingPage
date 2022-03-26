@@ -1,0 +1,327 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.contain {
+		@apply 2xl:max-w-[1326px] xl:max-w-[1140px] lg:max-w-[920px]  md:max-w-[720px] sm:max-w-[540px] mx-auto w-full px-[.75rem];
+	}
+	.slider {
+		@apply mx-4 overflow-x-hidden 2xl:w-102 xl:w-105 lg:w-107 md:w-103 sm:w-104 sm:mx-auto w-106 pb-28;
+	}
+	.swiper-container {
+		@apply overflow-visible;
+	}
+}
+
+@layer utilities {
+	@variants responsive {
+		.slide:before {
+			content: '';
+			position: absolute;
+			background-image: url(/feedback_quotation.png);
+			background-repeat: no-repeat;
+			width: 165px;
+			height: 165px;
+			top: 45px;
+			right: 45px;
+		}
+		.hero {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+		.woman {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+		}
+		.left::before {
+			position: absolute;
+			left: 0;
+			top: 50%;
+			width: 3px;
+			background-color: red;
+			content: '';
+			height: calc(100% - 16px);
+			transform: translateY(-50%);
+		}
+		.icon {
+			margin-left: 10px;
+			transform: translateY(1px);
+		}
+		.illustrate {
+			position: absolute;
+			right: -116px;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+		.portfolio_area::before {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			content: '';
+			background-color: #f6f8fa;
+			z-index: -1;
+		}
+		.portfolio_area::after {
+			content: '';
+			position: absolute;
+			right: 5.5%;
+			top: 6.6%;
+			background-image: url(/testimonial_bg_shape.png);
+			background-repeat: no-repeat;
+			width: 645px;
+			height: 645px;
+			filter: blur(141.7px);
+			opacity: 0.2;
+			z-index: -1;
+		}
+		.item_img:hover img {
+			/* transform: scale3d(1.1, 1.1, 1.1); */
+		}
+		.item_img img {
+			transition: all 1.5s cubic-bezier(0, 0, 0.2, 1);
+			width: 100%;
+		}
+		.item_img:hover .i {
+			visibility: visible;
+			opacity: 1;
+			transform: translate(-50%, -50%) scaleY(1);
+			top: 50%;
+			z-index: 9999;
+		}
+		.item_img .i {
+			position: absolute;
+			left: 50%;
+			top: 25%;
+			font-size: 40px;
+			color: #fff;
+			background-color: #ff5041;
+			width: 60px;
+			height: 60px;
+			line-height: 60px;
+			text-align: center;
+			transition: all 0.3s cubic-bezier(0, 0, 0.2, 1);
+			transform: translate(-50%, -50%) scaleY(0);
+			visibility: hidden;
+			opacity: 0;
+			transform-origin: top;
+		}
+		.item_img:hover::before {
+			opacity: 0.3;
+			visibility: visible;
+			transform: scaleY(2);
+		}
+		.item_img::before {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 300%;
+			background-color: #ff5041;
+			content: '';
+			opacity: 0;
+			visibility: hidden;
+			transform-origin: top left;
+			transition: all 0.7s cubic-bezier(0, 0, 0.2, 1);
+			transform: scaleY(0);
+			z-index: 1;
+		}
+		.container::before {
+			content: '';
+			display: inline-block;
+			height: 100%;
+			vertical-align: middle;
+		}
+		.gray .im .img::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: -75%;
+			z-index: 2;
+			display: block;
+			width: 50%;
+			height: 100%;
+			background: linear-gradient(
+				to right,
+				rgba(255, 255, 255, 0) 0%,
+				rgba(255, 255, 255, 0.3) 100%
+			);
+			transform: skewX(-25deg);
+		}
+		.gray:hover a img {
+			filter: grayscale(90%);
+			transform: scale(1.1);
+		}
+		.gray:hover.img::after {
+			animation: shine 0.8s;
+		}
+		.contact {
+			position: relative;
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center center;
+		}
+		.contact::before {
+			opacity: 0.9;
+		}
+		.contact::before {
+			background-color: #f6f8fa;
+		}
+		.contact::before {
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			content: '';
+		}
+		.contact::after {
+			content: '';
+			position: absolute;
+			background-image: url(/blur_shape.png);
+			background-repeat: no-repeat;
+			width: 100%;
+			height: 100%;
+			left: 0;
+			bottom: 0;
+			background-size: cover;
+		}
+		.photo {
+			width: 100px;
+			display: inline-block;
+			height: 100px;
+			margin-bottom: 10px;
+			margin-right: 5px;
+			position: relative;
+			border-radius: 10px;
+		}
+		.photo:hover:before {
+			opacity: 0.65;
+			visibility: visible;
+		}
+
+		.photo:before {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			content: '';
+			background-color: #000;
+			border-radius: 10px;
+			opacity: 0;
+			visibility: hidden;
+			transition: 0.3s;
+		}
+		.photo:hover .i {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		.photo .i {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			color: #fff;
+			font-size: 30px;
+			opacity: 0;
+			visibility: hidden;
+			transition: 0.3s;
+		}
+		.footer_menu li a::before,
+		.footer_menu li a:hover::before {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 2px;
+			content: '';
+			background-color: var(--clr-theme-1);
+			transition: 0.3s;
+		}
+	}
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399.99px) {
+	.hero {
+		left: inherit;
+		top: 50%;
+		transform: translate(0, -50%);
+		right: 250px;
+		width: 530px;
+	}
+	.woman {
+		right: 90px;
+	}
+	.illustration {
+		max-width: 195px;
+		right: -100px;
+	}
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199.99px) {
+	.hero {
+		left: 60%;
+		width: 370px;
+	}
+	.woman {
+		right: 120px;
+		top: 255px;
+	}
+	.illustration {
+		max-width: 140px;
+		right: -75px;
+	}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991.99px) {
+	.hero {
+		left: 65%;
+		width: 337px;
+	}
+	.woman {
+		top: 260px;
+		right: 10px;
+		width: 130px;
+	}
+}
+@media only screen and (min-width: 576px) and (max-width: 767.99px) {
+	.hero {
+		left: 0;
+		top: 170px;
+		transform: translate(0, 0);
+	}
+	.woman {
+		display: block;
+		top: 305px;
+		right: 15px;
+	}
+	.illustration {
+		max-width: 120px;
+		right: -70px;
+	}
+}
+@media (max-width: 767.99px) {
+	.woman {
+		right: 30px;
+		bottom: inherit;
+		top: 169px;
+		display: none;
+	}
+
+	.hero {
+		left: 0;
+		top: 165px;
+		transform: translate(0, 0);
+	}
+	.illustration {
+		max-width: 90px;
+		right: -50px;
+	}
+}
